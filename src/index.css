@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: #2c2c2c;
+    background-color: #faf9f6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  ::selection {
+    background-color: #c9a84c;
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .nav-solid {
+    background-color: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-transparent {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(250, 249, 246, 0.92) 0%,
+      rgba(250, 249, 246, 0.75) 50%,
+      rgba(250, 249, 246, 0.6) 100%
+    );
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #c9a84c, #dfc06e, #c9a84c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 bg-[#c9a84c] text-white font-medium tracking-wide
+           rounded-sm transition-all duration-300 ease-out
+           hover:bg-[#b8963a] hover:shadow-lg hover:shadow-[#c9a84c]/20
+           active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-3.5 border-2 border-[#c9a84c] text-[#c9a84c] font-medium tracking-wide
+           rounded-sm transition-all duration-300 ease-out
+           hover:bg-[#c9a84c] hover:text-white hover:shadow-lg hover:shadow-[#c9a84c]/20
+           active:scale-[0.98];
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-semibold text-[#1a1a1a] leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-sm md:text-base uppercase tracking-[0.25em] text-[#c9a84c] font-medium;
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  .slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .service-card {
+    @apply bg-white p-8 md:p-10 rounded-sm border border-gray-100
+           transition-all duration-500 ease-out
+           hover:shadow-xl hover:shadow-black/5 hover:border-[#c9a84c]/30
+           hover:-translate-y-1;
+  }
+
+  .service-card .icon-wrapper {
+    @apply w-14 h-14 flex items-center justify-center rounded-sm bg-[#c9a84c]/10 text-[#c9a84c]
+           transition-all duration-500;
+  }
+
+  .group:hover .icon-wrapper {
+    @apply bg-[#c9a84c] text-white;
+  }
+
+  .project-card {
+    @apply relative overflow-hidden rounded-sm cursor-pointer;
+  }
+
+  .project-card img {
+    @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+  }
+
+  .project-card:hover img {
+    @apply scale-110;
+  }
+
+  .project-card .overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent
+           opacity-0 transition-opacity duration-500 flex items-end p-6;
+  }
+
+  .project-card:hover .overlay {
+    @apply opacity-100;
+  }
+
+  .strength-item {
+    @apply flex items-start gap-4 p-5 rounded-sm transition-all duration-300
+           hover:bg-white hover:shadow-md;
+  }
+}
+
+@layer utilities {
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+}
